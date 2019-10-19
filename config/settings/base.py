@@ -247,6 +247,7 @@ LOGGING = {
     "root": {"level": "INFO", "handlers": ["console"]},
 }
 
+INSTALLED_APPS += ["authentication"] # noqa F405
 
 # django-allauth
 # ------------------------------------------------------------------------------

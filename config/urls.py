@@ -3,7 +3,10 @@ from django.urls import include, path
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
+from django.urls import include, path
+from django.conf.urls import include, url
 from django.views import defaults as default_views
+# from . import views
 
 urlpatterns = [
     path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
@@ -15,7 +18,11 @@ urlpatterns = [
     # User management
     path("users/", include("aspire.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
+
+    # path("home/", include("aspire.home.urls", namespace='home'))
     # Your stuff: custom urls includes go here
+    path('home/', include('home.urls')),
+    url(r'^authentication/', include('authentication.urls', namespace='authentication')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

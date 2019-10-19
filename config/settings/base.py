@@ -57,6 +57,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 # APPS
 # ------------------------------------------------------------------------------
 DJANGO_APPS = [
+	"aspire.home",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
@@ -247,6 +248,7 @@ LOGGING = {
     "root": {"level": "INFO", "handlers": ["console"]},
 }
 
+INSTALLED_APPS += ["authentication"] # noqa F405
 
 # django-allauth
 # ------------------------------------------------------------------------------

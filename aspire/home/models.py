@@ -17,20 +17,29 @@ def post_delete_user(sender, instance, *args, **kwargs):
         instance.user.delete()
 
 
-class Departments(models.Model):
+class Department(models.Model):
     name = models.CharField(max_length=100)
-    id = models.IntegerField()
+    # id = models.IntegerField()
+    # courses manytomanyfield
 
-class Courses(models.Model):
+class Course(models.Model):
     id = models.IntegerField()
     name = models.CharField(max_length=100)
-    dept_id = models.IntegerField()
+    # dept_id = models.IntegerField()
     course_img = models.CharField(max_length=300)
 
-class Videos(models.Model):
-    url = models.CharField(max_length=300)
-    course_id = models.IntegerField()
+    # courses manyTomany field
+    # books manytomanyfield
 
-class Books(models.Model):
+class Video(models.Model):
     url = models.CharField(max_length=300)
-    course_id = models.IntegerField()
+    # course_id = models.IntegerField()
+    # title
+
+class Book(models.Model):
+    url = models.CharField(max_length=300)
+    # course_id = models.IntegerField()
+    name = models.CharField(max_length=300)
+
+    is_borrowed = models.BooleanField()
+    is_sharable = models.BooleanField()

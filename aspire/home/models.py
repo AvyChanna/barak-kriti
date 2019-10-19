@@ -1,45 +1,40 @@
 from django.db import models
-from django.contrib.auth.models import User
-from django.dispatch import receiver
-from django.db.models.signals import post_delete
 
-class ExtraInfo(models.Model):
-    user = models.OneToOneField(User)
-    college = models.CharField(max_length=30)
-    major = models.CharField(max_length=30)
-
-# user = User.objects.get(username='asdfg')
-# college = user.student.college
-
-@receiver(post_delete, sender=ExtraInfo)
-def post_delete_user(sender, instance, *args, **kwargs):
-    if instance.user: # just in case user is not specified
-        instance.user.delete()
 
 
 class Department(models.Model):
     name = models.CharField(max_length=100)
-    # id = models.IntegerField()
-    # courses manytomanyfield
+    img = models.ImageField()
 
 class Course(models.Model):
-    id = models.IntegerField()
     name = models.CharField(max_length=100)
-    # dept_id = models.IntegerField()
-    course_img = models.CharField(max_length=300)
-
-    # courses manyTomany field
-    # books manytomanyfield
+    title = models.CharField(max_length=300)
+    department = models.ForeignKey(Department, on_delete=models.CASCADE)
 
 class Video(models.Model):
-    url = models.CharField(max_length=300)
-    # course_id = models.IntegerField()
-    # title
+    url = models.URLField()
+    title = models.CharField(max_length=100)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
 
 class Book(models.Model):
-    url = models.CharField(max_length=300)
-    # course_id = models.IntegerField()
-    name = models.CharField(max_length=300)
-
+    pdf = models.FileField()
+    title = models.CharField(max_length=300)
+    BookTypeChoices = [
+        ('Tutorial', 'Tutorial'),
+        ('Test', 'Test Paper'),
+        ('Notes', 'Notes'),
+        ('Solution', 'Solution'),
+    ]
+    bookType = models.CharField(
+        choices=BookTypeChoices,
+        max_length=20
+    )
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    
+class Novel(models.Model):
+    title = models.CharField(max_length=100)
+    img = models.ImageField()
     is_borrowed = models.BooleanField()
-    is_sharable = models.BooleanField()
+    
+class Tags(models.Model):
+    courses = models.ManyToManyField(Course)

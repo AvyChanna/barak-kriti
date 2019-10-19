@@ -18,6 +18,8 @@ urlpatterns = [
     # User management
     path("users/", include("aspire.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
+
+    # path("home/", include("aspire.home.urls", namespace='home'))
     # Your stuff: custom urls includes go here
     path('home/', include('home.urls')),
     url(r'^authentication/', include('authentication.urls', namespace='authentication')),

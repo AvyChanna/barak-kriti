@@ -57,6 +57,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 # APPS
 # ------------------------------------------------------------------------------
 DJANGO_APPS = [
+	"aspire.home",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",

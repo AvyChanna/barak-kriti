@@ -4,7 +4,7 @@ from aspire.home.models import Department, Course, Video, Book, Novel, Note
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404 , Http404
 from django.http import HttpResponseRedirect, HttpResponse
-
+from .forms import NameForm
 
 def index(request):
     return HttpResponseRedirect("accounts/login")
@@ -38,4 +38,20 @@ def departments(request, slug):
 def bookshare(request):
     n = Novel.objects.all()
     return render(request, "bookshare/index.html", {'novels':n})
+
+
+@login_required
+def share(request):
+    if request.method == 'POST':
+            # create a form instance and populate it with data from the request:
+            form = NameForm(request.POST)
+            # check whether it's valid:
+            if form.is_valid():
+                return HttpResponseRedirect('/thanks/')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = NameForm()
+
+    return render(request, 'course/share.html', {'form': form} )
 

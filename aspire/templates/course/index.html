@@ -1,4 +1,6 @@
 {% load static %}
+
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -137,7 +139,7 @@
                         <div class="row mt-8">
                             <div class="col-12">
                                 <div class="text-center mb-5">
-                                    <a class="btn btn-round btn-primary btn-xl text-white text-center fs-17" href="../../upload.html">Share a File</a>
+                                    <a class="btn btn-round btn-primary btn-xl text-white text-center fs-17" href="{% url 'share' %}">Share a File</a>
                                 </div>
                                 <div class="card d-block mx-auto card-shadow border-primary">
                                     <div class="card-body border-bottom-1">

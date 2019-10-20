@@ -9,11 +9,9 @@ from django.views import defaults as default_views
 # from . import views
 
 urlpatterns = [
-    path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
-    path(
-        "about/", TemplateView.as_view(template_name="pages/about.html"), name="about"
-    ),
+    # path("", include(home), name="home"),
     # Django Admin, use {% url 'admin:index' %}
+    path('', include('home.urls')),
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
     path("users/", include("aspire.users.urls", namespace="users")),
@@ -21,7 +19,6 @@ urlpatterns = [
 
     # path("home/", include("aspire.home.urls", namespace='home'))
     # Your stuff: custom urls includes go here
-    path('home/', include('home.urls')),
     url(r'^authentication/', include('authentication.urls', namespace='authentication')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

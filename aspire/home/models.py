@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 
 
@@ -33,7 +34,9 @@ class Book(models.Model):
     
 class Novel(models.Model):
     title = models.CharField(max_length=100)
+    author = models.CharField(max_length=100)
     img = models.ImageField()
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,)
     is_borrowed = models.BooleanField()
     
 class Tags(models.Model):

@@ -264,6 +264,7 @@ ACCOUNT_ADAPTER = "aspire.users.adapters.AccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 SOCIALACCOUNT_ADAPTER = "aspire.users.adapters.SocialAccountAdapter"
 
-
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
+LOGIN_REDIRECT_URL = '/home/'
 # Your stuff...
 # ------------------------------------------------------------------------------

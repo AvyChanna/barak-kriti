@@ -1,21 +1,19 @@
-from django.shortcuts import render, get_object_or_404 , Http404
-from django.http import HttpResponseRedirect, HttpResponse
-from aspire.home.models import Department, Course, Video, Book
-# from django.views.decorators.clickjacking import xframe_options_deny
-from django.views.decorators.clickjacking import xframe_options_sameorigin
-from django.views.decorators.clickjacking import xframe_options_exempt
+from django.shortcuts import render, get_object_or_404, Http404
+from django.http import HttpResponseRedirect
+from aspire.home.models import Department, Course, Video, Book, Novel
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     return HttpResponseRedirect("accounts/login")
 
-
+@login_required
 def home(request):
     d = Department.objects.all()
     return render(request, "home/index.html", {'depts':d})
 
 
 
-@xframe_options_exempt
+@login_required
 def courses(request, dept, sub):
     d = get_object_or_404(Department, slug=dept)
     c = get_object_or_404(Course, slug=sub)
@@ -25,8 +23,13 @@ def courses(request, dept, sub):
     b = Book.objects.filter(course=c)
     return render(request, "course/index.html", {'dept':d, 'course':c, 'videos':v, 'books':b})
 
-
+@login_required
 def departments(request, slug):
     d = get_object_or_404(Department, slug=slug)
     c = Course.objects.filter(department=d)
     return render(request, 'department/index.html', {'dept': d, "courses":c})
+
+@login_required
+def bookshare(request):
+    n = Novel.objects.all()
+    return render(request, "bookshare/index.html", {'novels':n})

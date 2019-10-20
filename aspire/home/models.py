@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.utils.text import slugify
+from aspire.home.filerestrict import ContentTypeRestrictedFileField
 
 class Department(models.Model):
     def __str__(self):
@@ -45,6 +46,13 @@ class Course(models.Model):
             self.slug = self._get_unique_slug()
         super().save(*args, **kwargs)
 
+class ExtraLinks(models.Model):
+    def __str__(self):
+        return self.title
+    url = models.URLField()
+    title = models.CharField(max_length=100)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+
 class Video(models.Model):
     def __str__(self):
         return self.title
@@ -55,7 +63,7 @@ class Video(models.Model):
 class Book(models.Model):
     def __str__(self):
         return self.title
-    pdf = models.FileField()
+    pdf = ContentTypeRestrictedFileField(content_types=['application/pdf'], max_upload_size=10485760)
     title = models.CharField(max_length=300)
     BookTypeChoices = [
         ('Tutorial', 'Tutorial'),
@@ -78,8 +86,10 @@ class Novel(models.Model):
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True)
     is_borrowed = models.BooleanField()
 
-class Tags(models.Model):
+class Tag(models.Model):
     def __str__(self):
         return self.name
     name = models.CharField(max_length=20)
     courses = models.ManyToManyField(Course)
+
+

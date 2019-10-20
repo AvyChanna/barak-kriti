@@ -56,7 +56,7 @@ class ExtraLinks(models.Model):
 class Video(models.Model):
     def __str__(self):
         return self.title
-    url = models.URLField()
+    url = models.FileField()
     title = models.CharField(max_length=100)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
 

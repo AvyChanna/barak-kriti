@@ -1,4 +1,4 @@
-{% load static %}
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +17,7 @@
     <!--  Open Graph Tags -->
     <meta property="og:title" content="Aspire">
     <meta property="og:description" content="E-Learning platform for IIT Guwahati">
-    <meta property="og:image" content="assets/img/logo-light.png">
+    <meta property="og:image" content="{% static 'assets/img/logo-light.png'%}">
     <meta property="og:url" content="#">
     <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -80,72 +80,28 @@
       |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
       !-->
         <section class="section">
+
+            <script>{% for i in depts %}console.log(" {{ i.name }}, {{ i.img.url }} ");{% endfor %}</script>
             <div class="container" id="dc">
                 <header class="section-header">
                     <h2 class="display-3 fw-400" style="margin-top: -80px">Departments and Clubs</h2>
                 </header>
-                <div class="row gap-y" style="margin-top: -30px; margin-bottom: 30px">
-                    <div class="col-12 col-lg-4 hover-shadow-4" data-aos="fade-up" data-aos-duration="250" data-aos-delay="00">
-                        <a href="dac/cse.html">
-                            <div class="card text-white justify-content-end bg-img h-400" style="background-image: url(assets/img/dac/cse.jpg);" data-overlay="3">
-                                <div class="card-body flex-grow-5">
-                                    <h3 class="card-title fw-200">Computer Science and Engineering</h3>
-                                    <!-- <span class="badge badge-warning">Department</span> -->
+
+                    <div class="row gap-y" style="margin-top: -30px; margin-bottom: 30px">
+                        {% for i in depts %}
+                        <div class="col-12 col-lg-4 hover-shadow-4" data-aos="fade-up" data-aos-duration="250" data-aos-delay="00">
+                            <a href="dac/cse.html">
+                                <div class="card text-white justify-content-end bg-img h-400" style="background-image: url('{{i.img.url}}');" data-overlay="3">
+                                    <div class="card-body flex-grow-5">
+                                        <h3 class="card-title fw-200">{{ i.name }}</h3>
+                                        <!-- <span class="badge badge-warning">Department</span> -->
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
+                        {% endfor %}
                     </div>
-                    <div class="col-12 col-lg-4 hover-shadow-4" data-aos="fade-up" data-aos-duration="250" data-aos-delay="00">
-                        <a href="./resources/Acumendept.html">
-                            <div class="card text-white justify-content-end bg-img h-400" style="background-image: url(assets/img/dac/AcumenLogo.png);background-size: 75%" data-overlay="3">
-                                <div class="card-body flex-grow-5">
-                                    <h3 class="card-title fw-200">Acumen : Quiz Club</h3>
-                                    <!-- <span class="badge badge-warning">Club</span> -->
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12 col-lg-4 hover-shadow-4" data-aos="fade-up" data-aos-duration="250" data-aos-delay="00">
-                        <a href="./resources/Acumendept.html">
-                            <div class="card text-white justify-content-end bg-img h-400" style="background-image: url(assets/img/dac/AcumenLogo.png);background-size: 75%" data-overlay="3">
-                                <div class="card-body flex-grow-5">
-                                    <h3 class="card-title fw-200">Acumen : Quiz Club</h3>
-                                    <!-- <span class="badge badge-warning">Club</span> -->
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12 col-lg-4 hover-shadow-4" data-aos="fade-up" data-aos-duration="250" data-aos-delay="00">
-                        <a href="./resources/Acumendept.html">
-                            <div class="card text-white justify-content-end bg-img h-400" style="background-image: url(assets/img/dac/AcumenLogo.png);background-size: 75%" data-overlay="3">
-                                <div class="card-body flex-grow-5">
-                                    <h3 class="card-title fw-200">Acumen : Quiz Club</h3>
-                                    <!-- <span class="badge badge-warning">Club</span> -->
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12 col-lg-4 hover-shadow-4" data-aos="fade-up" data-aos-duration="250" data-aos-delay="00">
-                        <a href="./resources/Acumendept.html">
-                            <div class="card text-white justify-content-end bg-img h-400" style="background-image: url(assets/img/dac/AcumenLogo.png);background-size: 75%" data-overlay="3">
-                                <div class="card-body flex-grow-5">
-                                    <h3 class="card-title fw-200">Acumen : Quiz Club</h3>
-                                    <!-- <span class="badge badge-warning">Club</span> -->
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12 col-lg-4 hover-shadow-4" data-aos="fade-up" data-aos-duration="250" data-aos-delay="00">
-                        <a href="./resources/Acumendept.html">
-                            <div class="card text-white justify-content-end bg-img h-400" style="background-image: url(assets/img/dac/AcumenLogo.png);background-size: 75%" data-overlay="3">
-                                <div class="card-body flex-grow-5">
-                                    <h3 class="card-title fw-200">Acumen : Quiz Club</h3>
-                                    <!-- <span class="badge badge-warning">Club</span> -->
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+
             </div>
         </section>
     </main>
@@ -165,8 +121,8 @@
     <!--back to top-->
     <button class="btn btn-circle btn-primary scroll-top"><i class="fa fa-angle-up"></i></button>
     <!-- Scripts -->
-    <script src="./assets/js/page.min.js"></script>
-    <script src="./assets/js/script.js"></script>
+    <script src="{% static  'assets/js/page.min.js' %}"></script>
+    <script src="{% static  'assets/js/script.js'%}"></script>
 
 
     <script>
@@ -182,7 +138,7 @@
         // Strongly recommended: Hide loader after 20 seconds, even if the page hasn't finished loading
         setTimeout(hideLoader, 20 * 1000);
 	</script>
-	<script>{% for i in depts %}console.log(" {{ i.name }}", "{{ i.img }} ");{% endfor %}</script>	
+	<script>{% for i in depts %}console.log(" {{ i.name }}, {{ i.img }} ");{% endfor %}</script>
 </body>
 
 </html>

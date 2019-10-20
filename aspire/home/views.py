@@ -1,4 +1,3 @@
-
 from django.shortcuts import render, get_object_or_404, Http404
 from django.http import HttpResponseRedirect
 from aspire.home.models import Department, Course, Video, Book, Novel, Note

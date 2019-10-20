@@ -82,10 +82,10 @@
                 <header class="section-header">
                     <h2 class="display-3 fw-400" style="margin-top: -80px">Courses</h2>
                 </header>
-                <div class="row gap-y" style="margin-top: -30px; margin-bottom: 30px">
+                <div class="row gap-y" style="margin-top: -30px; margin-    bottom: 30px">
                     {% for i in courses %}
                     <div class="col-12 col-lg-4 hover-shadow-4" data-aos="fade-up" data-aos-duration="250" data-aos-delay="00">
-                        <a href="#">
+                        <a href="/depts/{{dept.slug}}/course/{{i.slug}}">
                             <div class="card text-white justify-content-end bg-img" style="background-image: url(/static/assets/img/dac/bg.jpg);" data-overlay="1">
                                 <div class="card-body flex-grow-5 align-items-center">
                                     <h3 class="lead-6 fw-400 d-inline font-body">{{i.name}}</h3>

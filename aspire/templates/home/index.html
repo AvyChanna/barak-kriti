@@ -89,6 +89,7 @@
                     <h2 class="display-3 fw-400" style="margin-top: -80px">Departments and Clubs</h2>
                 </header>
 
+
                 <div class="row gap-y" style="margin-top: -30px; margin-bottom: 30px">
                     {% for i in depts %}
                     <div class="col-12 col-lg-4 hover-shadow-4" data-aos="fade-up" data-aos-duration="250" data-aos-delay="00">
@@ -96,7 +97,6 @@
                             <div class="card text-white justify-content-end bg-img h-400" style="background-image: url('{{i.img.url}}');" data-overlay="3">
                                 <div class="card-body flex-grow-5">
                                     <h3 class="card-title fw-200">{{ i.name }}</h3>
-                                    <!-- <span class="badge badge-warning">Department</span> -->
                                 </div>
                             </div>
                         </a>

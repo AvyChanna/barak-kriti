@@ -75,6 +75,7 @@
                         <a class="nav-link active" href="#courses" data-toggle="tab">Courses</a>
                     </li>
                     <li class="nav-item">
+
                         <a class="nav-link" href="#books" data-toggle="tab">Books</a>
                     </li>
                     <li class="nav-item">
@@ -83,16 +84,23 @@
                 </ul>
                 <div class="tab-content p-4">
                     <div class="tab-pane fade show active" id="courses">
+                        {% for j in videos %}
                         <div class="text-center mt-8">
-                            <iframe width="854" height="480" src="https://www.youtube.com/embed/videoseries?list=PLrkrSherBqJk5AsxyRqQ3nFbcuo3z0P0S" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <h2 class="lead">{{j.title}}</h2>
+                             <video width="320" height="240" controls>
+                                    <source src="{{j.url.url}}" type="video/mp4">
+
+                                    Your browser does not support the video tag.
+                                </video>
                         </div>
+                        {% endfor %}
                     </div>
                     <div class="tab-pane fade" id="books">
                         <div class="row mt-8">
                             <div class="col-12">
                                 <div class="card d-block mx-auto card-shadow border-primary">
                                     <div class="card-body border-bottom-1">
-                                        <h2 class="card-title">CS 101</h2>
+                                        <h2 class="card-title">{{course.name}}</h2>
                                         <h4>Important Files <i class="fa fa-angle-down"></i></h4>
                                         <div class="row mt-5 gap-y container pre-scrollable">
                                             {% for i in books %}
@@ -124,7 +132,7 @@
                 </div>
                 <div class="card d-block mx-auto card-shadow border-primary">
                     <div class="card-body border-bottom-1">
-                        <h2 class="card-title">CS 101</h2>
+                        <h2 class="card-title"></h2>
                         <h4>Shared Files <i class="fa fa-angle-down"></i></h4>
                         <div class="row mt-5 gap-y container pre-scrollable">
                             <div class="col-6 col-md-2 hover-shadow-4 my-1">

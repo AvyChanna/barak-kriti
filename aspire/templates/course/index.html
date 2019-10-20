@@ -146,24 +146,22 @@
                                         <div class="row mt-5 gap-y container pre-scrollable">
 
                                             {% for i in notes %}
-                                            <div class="col-6 col-md-2 hover-shadow-4 my-1">
-                                                <a href="{{i.pdf.url}}" download="{{i.title}}">
-                                                    <div class="card bd-block pdf" datastore="{{i.pdf.url}}">
-                                                        <img class="card-img-top" src="{% static  'assets/img/pdf.png'%}" alt="pdf" height="45px" width="45px">
-                                                        <div class="card-body">
-                                                            <p class="card-title">{{i.title}}</p>
-                                                            <small>Uploaded by {{ i.user.name }}</small>
+
+                                                {% if i.is_approved %}
+                                                <div class="col-6 col-md-2 hover-shadow-4 my-1">
+                                                    <a href="{{i.pdf.url}}" download="{{i.title}}">
+                                                        <div class="card bd-block pdf" datastore="{{i.pdf.url}}">
+                                                            <img class="card-img-top" src="{% static  'assets/img/pdf.png'%}" alt="pdf" height="45px" width="45px">
+                                                            <div class="card-body">
+                                                                <p class="card-title">{{i.title}}</p>
+
+                                                                <small>Uploaded by {{ i.user }}</small>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-
+                                                    </a>
+                                                </div>
+                                                {% endif %}
                                             {% endfor %}
-
-
-
-
-
                                         </div>
                                     </div>
                                 </div>

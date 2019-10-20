@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.utils.text import slugify
-from aspire.home.filerestrict import ContentTypeRestrictedFileField
+from aspire.home.filerestrict import PdfFileField
 
 class Department(models.Model):
     def __str__(self):
@@ -63,7 +63,7 @@ class Video(models.Model):
 class Book(models.Model):
     def __str__(self):
         return self.title
-    pdf = ContentTypeRestrictedFileField(content_types=['application/pdf'], max_upload_size=10485760)
+    pdf = PdfFileField()
     title = models.CharField(max_length=300)
     BookTypeChoices = [
         ('Tutorial', 'Tutorial'),

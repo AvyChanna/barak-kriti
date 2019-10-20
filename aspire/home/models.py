@@ -93,3 +93,10 @@ class Tag(models.Model):
     courses = models.ManyToManyField(Course)
 
 
+class Note(models.Model):
+    def __str__(self):
+        return self.title
+    pdf = PdfFileField()
+    title = models.CharField(max_length=300)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)

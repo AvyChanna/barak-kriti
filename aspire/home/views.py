@@ -16,7 +16,8 @@ def home(request):
 # def courses(request):
 #     request.GET.get()
 #     c = Course.objects.filter(department__name=request.data)
-def departments(request, slug):
+
+def departments(request,slug):
     d = get_object_or_404(Department, slug=slug)
     c = Course.objects.filter(department=d)
     return render(request, 'department/index.html', {'dept': d, "courses":c})

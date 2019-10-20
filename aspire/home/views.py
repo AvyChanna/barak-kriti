@@ -1,7 +1,14 @@
+<<<<<<< Updated upstream
 from django.shortcuts import render, get_object_or_404, Http404
 from django.http import HttpResponseRedirect
 from aspire.home.models import Department, Course, Video, Book, Novel
 from django.contrib.auth.decorators import login_required
+=======
+from django.shortcuts import render, get_object_or_404 , Http404
+from django.http import HttpResponseRedirect, HttpResponse
+from aspire.home.models import Department, Course, Video, Book
+
+>>>>>>> Stashed changes
 
 def index(request):
     return HttpResponseRedirect("accounts/login")
@@ -22,6 +29,7 @@ def courses(request, dept, sub):
     v = Video.objects.filter(course=c)
     b = Book.objects.filter(course=c)
     return render(request, "course/index.html", {'dept':d, 'course':c, 'videos':v, 'books':b})
+
 
 @login_required
 def departments(request, slug):

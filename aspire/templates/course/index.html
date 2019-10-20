@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -30,22 +29,28 @@
             <div class="navbar-left">
                 <!-- <button class="navbar-toggler" type="button">&#9776;</button> -->
                 <a class="navbar-brand" href="../../dept.html">
+
                     <img class="logo-dark" src="{% static  'assets/img/logo-dark.png' %}" alt="logo" width="120px" height="120px">
                     <img class="logo-light" src="{% static  'assets/img/logo-light.png' %}" alt="logo" width="120px" height="120px">
+
                 </a>
             </div>
             <section class="navbar-mobile">
                 <span class="navbar-divider d-mobile-none"></span>
             </section>
+
             <a class="btn btn-primary btn-round text-white" href="../../upload.html">Upload Video</a>
             <a class="btn btn-primary btn-round text-white" href="../../upload.html">Upload Book</a>
+
 
             <!-- <a class="btn btn-round btn-primary nav-link text-white" href="#">Novels</a> -->
         </div>
     </nav>
     <!-- /.navbar -->
     <!-- Header -->
+
     <header class="header mb-9 mh-fullscreen" style="background-image: url(/static/assets/img/dac/cse/cs101/header.jpg)" data-overlay="6">
+
         <div class="container text-white">
             <div class="row">
                 <div class="col-md-6 mt-5">
@@ -85,6 +90,7 @@
                 </ul>
                 <div class="tab-content p-4">
                     <div class="tab-pane fade show active" id="courses">
+
                         {% for j in videos %}
                         <div class="text-center mt-8">
                             <h2 class="lead">{{j.title}}</h2>
@@ -95,6 +101,7 @@
                                 </video>
                         </div>
                         {% endfor %}
+
                     </div>
                     <div class="tab-pane fade" id="books">
                         <div class="row mt-8">
@@ -200,19 +207,6 @@
     <!-- Scripts -->
     <script src="{% static  'assets/js/page.min.js'%}"></script>
     <script src="{% static  'assets/js/script.js'%}"></script>
-
-    <script>
-        $(".pdf2").click(function () {
-            $("#frame2").attr("src", "{{i.pdf.url}}");
-        });
-    </script>
-   <script> $(".pdf").click(function(){
-     var target = $(e.target);
-
-        console.log(target.id);
-        $("#frame").attr("src", target.datastore);
-    });
-    </script>
 </body>
 
 </html>

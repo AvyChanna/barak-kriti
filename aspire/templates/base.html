@@ -16,6 +16,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
 
+
 	<link rel="icon" href="{% static 'images/favicons/favicon.ico' %}">
 
 	{% block css %}
@@ -25,88 +26,50 @@
 
 	{% endblock %}
 
-</head>
 
-<body>
+  </head>
 
-
-	  <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light navbar-stick-dark" data-navbar="sticky">
-        <div class="container">
-
-            <div class="navbar-left">
-                <!-- <button class="navbar-toggler" type="button">&#9776;</button> -->
-                <a class="navbar-brand" href="index.html">
-                    <img class="logo-dark" width="120px" height="120px" src="assets/img/logo-dark.png" alt="logo">
-                    <img class="logo-light" width="120px" height="120px" src="assets/img/logo-light.png" alt="logo">
-                </a>
-			</div>
-			
-			<!-- NOVELS 
-			<a class="btn btn-round btn-primary nav-link text-white" href="#">Novels</a> -->
-
-			<!-- UPLOAD ITEMS
-            <a class="btn btn-primary btn-round text-white" href="../../upload.html">Upload Files</a> -->
+  <body>
 
 
+      <nav class="navbar navbar-expand-md navbar-dark bg-light">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <!-- <a class="btn btn-sm btn-round btn-dark" href="#">Log In</a> -->
+         <a class="navbar-brand" href="">
+                    <img class="logo-dark" width="120px" height="120px" src="{% static "assets/img/logo-dark.png" %}" alt="logo">
+                    <img class="logo-light" width="120px" height="120px" src="{% static "assets/img/logo-light.png" %}" alt="logo">
+          </a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+
+            {% if request.user.is_authenticated %}
+              <li class="nav-item">
+                {# URL provided by django-allauth/account/urls.py #}
+                <a class="nav-link" style="color:#50a1fd;" href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a>
+              </li>
+              <li class="nav-item">
+                {# URL provided by django-allauth/account/urls.py #}
+                <a class="nav-link" style="color:#50a1fd;" href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                {# URL provided by django-allauth/account/urls.py #}
+                <a id="sign-up-link" style="color:#50a1fd;" class="nav-link" href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
+              </li>
+              <li class="nav-item">
+                {# URL provided by django-allauth/account/urls.py #}
+                <a id="log-in-link" style="color:#50a1fd;" class="nav-link" href="{% url 'account_login' %}">{% trans "Sign In" %}</a>
+              </li>
+            {% endif %}
+
+          </ul>
         </div>
-    </nav>
-    <!-- /.navbar -->
 
-	<div class="mb-1">
-		<nav class="navbar navbar-expand-md navbar-dark bg-light">
-			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-				data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<!--        <a class="navbar-brand" href=" url 'home' %}">aspire</a>-->
-			<a class="navbar-brand" href=" url 'home' %}">
-				<img class="logo-dark" width="120px" height="120px" src="{% static "assets/img/logo-dark.png" %}"
-					alt="logo">
-				<img class="logo-light" width="120px" height="120px" src="{% static "assets/img/logo-light.png" %}"
-					alt="logo">
-			</a>
+      </nav>
 
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active">
-						<a class="nav-link" style="color:#50a1fd;" href=" url 'home' %}">Home <span
-								class="sr-only">(current)</span></a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" style="color:#50a1fd;" href="  url 'about' %}">About</a>
-					</li>
-					{% if request.user.is_authenticated %}
-					<li class="nav-item">
-						{# URL provided by django-allauth/account/urls.py #}
-						<a class="nav-link" style="color:#50a1fd;"
-							href="{% url 'users:detail' request.user.username  %}">{% trans "My Profile" %}</a>
-					</li>
-					<li class="nav-item">
-						{# URL provided by django-allauth/account/urls.py #}
-						<a class="nav-link" style="color:#50a1fd;"
-							href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a>
-					</li>
-					{% else %}
-					<li class="nav-item">
-						{# URL provided by django-allauth/account/urls.py #}
-						<a id="sign-up-link" style="color:#50a1fd;" class="nav-link"
-							href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a>
-					</li>
-					<li class="nav-item">
-						{# URL provided by django-allauth/account/urls.py #}
-						<a id="log-in-link" style="color:#50a1fd;" class="nav-link"
-							href="{% url 'account_login' %}">{% trans "Sign In" %}</a>
-					</li>
-					{% endif %}
-				</ul>
-			</div>
-		</nav>
-
-	</div>
 
 	<div class="container">
 

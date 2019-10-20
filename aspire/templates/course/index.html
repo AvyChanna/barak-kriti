@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,11 +10,11 @@
     <meta name="keywords" content="Technical Board, IIT guwahati, technical board , tech board">
     <title>Courses-Computer Science and Engineering</title>
     <!-- Styles -->
-    <link href="../../assets/css/page.min.css" rel="stylesheet">
-    <link href="../../assets/css/style.css" rel="stylesheet">
+    <link href="{% static  'assets/css/page.min.css' %}" rel="stylesheet">
+    <link href="{% static  'assets/css/style.css' %}" rel="stylesheet">
     <!-- Favicons -->
-    <link rel="apple-touch-icon" href="../../assets/img/logo-light.png">
-    <link rel="icon" href="../../assets/img/logo-light.png">
+    <link rel="apple-touch-icon" href="{% static  'assets/img/logo-light.png' %}">
+    <link rel="icon" href="{% static  'assets/img/logo-light.png' %}">
     <!--  Open Graph Tags -->
     <meta property="og:title" content="Aspire">
     <meta property="og:description" content="E-Learning platform for IIT Guwahati">
@@ -29,8 +30,8 @@
             <div class="navbar-left">
                 <!-- <button class="navbar-toggler" type="button">&#9776;</button> -->
                 <a class="navbar-brand" href="../../dept.html">
-                    <img class="logo-dark" src="../../assets/img/logo-dark.png" alt="logo" width="120px" height="120px">
-                    <img class="logo-light" src="../../assets/img/logo-light.png" alt="logo" width="120px" height="120px">
+                    <img class="logo-dark" src="{% static  'assets/img/logo-dark.png' %}" alt="logo" width="120px" height="120px">
+                    <img class="logo-light" src="{% static  'assets/img/logo-light.png' %}" alt="logo" width="120px" height="120px">
                 </a>
             </div>
             <section class="navbar-mobile">
@@ -43,7 +44,7 @@
     </nav>
     <!-- /.navbar -->
     <!-- Header -->
-    <header class="header mb-9 mh-fullscreen" style="background-image: url(../../assets/img/dac/cse/cs101/header.jpg)" data-overlay="6">
+    <header class="header mb-9 mh-fullscreen" style="background-image: url(/static/assets/img/dac/cse/cs101/header.jpg)" data-overlay="6">
         <div class="container text-white">
             <div class="row">
                 <div class="col-md-6 mt-5">
@@ -94,82 +95,22 @@
                                         <h2 class="card-title">CS 101</h2>
                                         <h4>Important Files <i class="fa fa-angle-down"></i></h4>
                                         <div class="row mt-5 gap-y container pre-scrollable">
+                                            {% for i in books %}
                                             <div class="col-6 col-md-2 hover-shadow-4 my-1">
-                                                <a href="#frame">
-                                                    <div class="card d-block pdf">
-                                                        <img class="card-img-top" src="../../assets/img/pdf.png" alt="pdf" height="45px" width="45px">
+                                                <a href="{{i.pdf.url}}" download="{{i.title}}">
+                                                    <div class="card bd-block pdf" datastore="{{i.pdf.url}}">
+                                                        <img class="card-img-top" src="{% static  'assets/img/pdf.png'%}" alt="pdf" height="45px" width="45px">
                                                         <div class="card-body">
-                                                            <p class="card-title">MA101 Tutorial 1</p>
+                                                            <p class="card-title">{{i.title}}</p>
                                                         </div>
                                                     </div>
                                                 </a>
                                             </div>
-                                            <div class="col-6 col-md-2 hover-shadow-4 my-1">
-                                                <a href="#frame">
-                                                    <div class="card d-block pdf">
-                                                        <img class="card-img-top" src="../../assets/img/pdf.png" alt="pdf">
-                                                        <div class="card-body">
-                                                            <p class="card-title">MA101 Tutorial 2</p>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-6 col-md-2 hover-shadow-4 my-1">
-                                                <a href="#frame">
-                                                    <div class="card d-block pdf">
-                                                        <img class="card-img-top" src="../../assets/img/pdf.png" alt="pdf">
-                                                        <div class="card-body">
-                                                            <p class="card-title">MA101 Tutorial 2</p>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-6 col-md-2 hover-shadow-4 my-1">
-                                                <a href="#frame">
-                                                    <div class="card d-block pdf">
-                                                        <img class="card-img-top" src="../../assets/img/pdf.png" alt="pdf">
-                                                        <div class="card-body">
-                                                            <p class="card-title">MA101 Tutorial 2</p>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-6 col-md-2 hover-shadow-4 my-1">
-                                                <a href="#frame">
-                                                    <div class="card d-block pdf">
-                                                        <img class="card-img-top" src="../../assets/img/pdf.png" alt="pdf">
-                                                        <div class="card-body">
-                                                            <p class="card-title">MA101 Tutorial 2</p>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-6 col-md-2 hover-shadow-4 my-1">
-                                                <a href="#frame">
-                                                    <div class="card d-block pdf">
-                                                        <img class="card-img-top" src="../../assets/img/pdf.png" alt="pdf">
-                                                        <div class="card-body">
-                                                            <p class="card-title">MA101 Tutorial 2</p>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="col-6 col-md-2 hover-shadow-4 my-1">
-                                                <a href="#frame">
-                                                    <div class="card d-block pdf">
-                                                        <img class="card-img-top" src="../../assets/img/pdf.png" alt="pdf">
-                                                        <div class="card-body">
-                                                            <p class="card-title">MA101 Tutorial 2</p>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
+
+                                       {% endfor %}
                                         </div>
                                     </div>
-                                </div>
-                                <div class="text-center mt-5">
-                                    <iframe id="frame" src="cs101Files/sample.pdf" class="container-fluid mh-fullscreen"></iframe>
-                                </div>
+
 
                             </div>
                         </div>
@@ -189,7 +130,7 @@
                             <div class="col-6 col-md-2 hover-shadow-4 my-1">
                                 <a href="#frame2">
                                     <div class="card d-block pdf2">
-                                        <img class="card-img-top" src="../../assets/img/pdf.png" alt="pdf" height="45px"
+                                        <img class="card-img-top" src="{% static  'assets/img/pdf.png'%}" alt="pdf" height="45px"
                                             width="45px">
                                         <div class="card-body">
                                             <p class="card-title">MA101 Tutorial 1</p>
@@ -200,7 +141,7 @@
                             <div class="col-6 col-md-2 hover-shadow-4 my-1">
                                 <a href="#frame2">
                                     <div class="card d-block pdf2">
-                                        <img class="card-img-top" src="../../assets/img/pdf.png" alt="pdf">
+                                        <img class="card-img-top" src="{% static  'assets/img/pdf.png'%}" alt="pdf">
                                         <div class="card-body">
                                             <p class="card-title">MA101 Tutorial 2</p>
                                         </div>
@@ -210,47 +151,7 @@
                             <div class="col-6 col-md-2 hover-shadow-4 my-1">
                                 <a href="#frame2">
                                     <div class="card d-block pdf2">
-                                        <img class="card-img-top" src="../../assets/img/pdf.png" alt="pdf">
-                                        <div class="card-body">
-                                            <p class="card-title">MA101 Tutorial 2</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-6 col-md-2 hover-shadow-4 my-1">
-                                <a href="#frame2">
-                                    <div class="card d-block pdf2">
-                                        <img class="card-img-top" src="../../assets/img/pdf.png" alt="pdf">
-                                        <div class="card-body">
-                                            <p class="card-title">MA101 Tutorial 2</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-6 col-md-2 hover-shadow-4 my-1">
-                                <a href="#frame2">
-                                    <div class="card d-block pdf2">
-                                        <img class="card-img-top" src="../../assets/img/pdf.png" alt="pdf">
-                                        <div class="card-body">
-                                            <p class="card-title">MA101 Tutorial 2</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-6 col-md-2 hover-shadow-4 my-1">
-                                <a href="#frame2">
-                                    <div class="card d-block pdf2">
-                                        <img class="card-img-top" src="../../assets/img/pdf.png" alt="pdf">
-                                        <div class="card-body">
-                                            <p class="card-title">MA101 Tutorial 2</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-6 col-md-2 hover-shadow-4 my-1">
-                                <a href="#frame2">
-                                    <div class="card d-block pdf2">
-                                        <img class="card-img-top" src="../../assets/img/pdf.png" alt="pdf">
+                                        <img class="card-img-top" src="{% static  'assets/img/pdf.png'%}" alt="pdf">
                                         <div class="card-body">
                                             <p class="card-title">MA101 Tutorial 2</p>
                                         </div>
@@ -260,9 +161,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-center mt-5">
-                    <iframe id="frame2" src="cs101Files/sample.pdf" class="container-fluid mh-fullscreen"></iframe>
-                </div>
+<!--                <div class="text-center mt-5">-->
+<!--                    <iframe id="frame2" src="cs101Files/sample.pdf" class="container-fluid mh-fullscreen"></iframe>-->
+<!--                </div>-->
 
             </div>
                         </div>
@@ -288,17 +189,20 @@
     <!--back to top-->
     <!-- <button class="btn btn-circle btn-primary scroll-top"><i class="fa fa-angle-up"></i></button> -->
     <!-- Scripts -->
-    <script src="../../assets/js/page.min.js"></script>
-    <script src="../../assets/js/script.js"></script>
-    <script>
-        $(".pdf").click(function() {
-            $("#frame").attr("src", "cs101Files/sample.pdf");
-        });
-    </script>
+    <script src="{% static  'assets/js/page.min.js'%}"></script>
+    <script src="{% static  'assets/js/script.js'%}"></script>
+
     <script>
         $(".pdf2").click(function () {
-            $("#frame2").attr("src", "cs101Files/sample.pdf");
+            $("#frame2").attr("src", "{{i.pdf.url}}");
         });
+    </script>
+   <script> $(".pdf").click(function(){
+     var target = $(e.target);
+
+        console.log(target.id);
+        $("#frame").attr("src", target.datastore);
+    });
     </script>
 </body>
 

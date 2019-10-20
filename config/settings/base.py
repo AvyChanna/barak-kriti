@@ -132,7 +132,7 @@ MIDDLEWARE = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    # "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
 # STATIC
@@ -204,7 +204,7 @@ CSRF_COOKIE_HTTPONLY = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#secure-browser-xss-filter
 SECURE_BROWSER_XSS_FILTER = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#x-frame-options
-X_FRAME_OPTIONS = "DENY"
+X_FRAME_OPTIONS = "ALLOW"
 
 # EMAIL
 # ------------------------------------------------------------------------------

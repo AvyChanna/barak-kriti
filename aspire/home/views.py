@@ -41,15 +41,23 @@ def bookshare(request):
 @login_required
 def share(request):
     if request.method == 'POST':
-            # create a form instance and populate it with data from the request:
-            form = NameForm(request.POST)
-            # check whether it's valid:
-            if form.is_valid():
-                return HttpResponseRedirect('/thanks/')
-
+        # create a form instance and populate it with data from the request:
+        form = NameForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            return HttpResponseRedirect('/thanks/')
     # if a GET (or any other method) we'll create a blank form
     else:
         form = NameForm()
-
     return render(request, 'course/share.html', {'form': form} )
 
+@login_required
+def search(request):
+    if request.method != 'GET':
+        return Http404
+    if request.GET.get('q', '') == '':
+        return HttpResponseRedirect("/home/", status=304)
+    q = request.GET.get('q', '')
+    v = Video.objects.filter(title=q)
+    b = Book.objects.filter(title=q)
+    return render(request, 'search/index.html', {"videos":v, "books":b} )

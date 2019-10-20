@@ -7,5 +7,6 @@ urlpatterns = [
     path(r'depts/<slug:dept>/course/<slug:sub>', views.courses, name="courses"),
     path(r'depts/<slug:slug>', views.departments, name='departments'),
     path(r'bookshare', views.bookshare, name='bookshare'),
-    path(r'upload', views.share , name = 'share')
+    path(r'upload', views.share, name = 'share'),
+    path(r'search', views.search, name='search'),
 ]

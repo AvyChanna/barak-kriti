@@ -94,7 +94,7 @@
                         {% for j in videos %}
                         <div class="text-center mt-8">
                             <h2 class="lead">{{j.title}}</h2>
-                             <video width="320" height="240" controls>
+                            <video width="320" height="240" controls>
                                     <source src="{{j.url.url}}" type="video/mp4">
 
                                     Your browser does not support the video tag.
@@ -123,65 +123,55 @@
                                                 </a>
                                             </div>
 
-                                       {% endfor %}
+                                            {% endfor %}
                                         </div>
                                     </div>
 
 
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="tab-pane fade" id="readings">
                         <div class="row mt-8">
-            <div class="col-12">
-                <div class="text-center mb-5">
-                    <a class="btn btn-round btn-primary btn-xl text-white text-center fs-17" href="">Share a File</a>
-                </div>
-                <div class="card d-block mx-auto card-shadow border-primary">
-                    <div class="card-body border-bottom-1">
-                        <h2 class="card-title"></h2>
-                        <h4>Shared Files <i class="fa fa-angle-down"></i></h4>
-                        <div class="row mt-5 gap-y container pre-scrollable">
-                            <div class="col-6 col-md-2 hover-shadow-4 my-1">
-                                <a href="#frame2">
-                                    <div class="card d-block pdf2">
-                                        <img class="card-img-top" src="{% static  'assets/img/pdf.png'%}" alt="pdf" height="45px"
-                                            width="45px">
-                                        <div class="card-body">
-                                            <p class="card-title">MA101 Tutorial 1</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-6 col-md-2 hover-shadow-4 my-1">
-                                <a href="#frame2">
-                                    <div class="card d-block pdf2">
-                                        <img class="card-img-top" src="{% static  'assets/img/pdf.png'%}" alt="pdf">
-                                        <div class="card-body">
-                                            <p class="card-title">MA101 Tutorial 2</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-6 col-md-2 hover-shadow-4 my-1">
-                                <a href="#frame2">
-                                    <div class="card d-block pdf2">
-                                        <img class="card-img-top" src="{% static  'assets/img/pdf.png'%}" alt="pdf">
-                                        <div class="card-body">
-                                            <p class="card-title">MA101 Tutorial 2</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-<!--                <div class="text-center mt-5">-->
-<!--                    <iframe id="frame2" src="cs101Files/sample.pdf" class="container-fluid mh-fullscreen"></iframe>-->
-<!--                </div>-->
+                            <div class="col-12">
+                                <div class="text-center mb-5">
+                                    <a class="btn btn-round btn-primary btn-xl text-white text-center fs-17" href="../../upload.html">Share a File</a>
+                                </div>
+                                <div class="card d-block mx-auto card-shadow border-primary">
+                                    <div class="card-body border-bottom-1">
+                                        <h2 class="card-title"></h2>
+                                        <h4>Shared Files <i class="fa fa-angle-down"></i></h4>
+                                        <div class="row mt-5 gap-y container pre-scrollable">
 
-            </div>
+                                            {% for i in notes %}
+                                            <div class="col-6 col-md-2 hover-shadow-4 my-1">
+                                                <a href="{{i.pdf.url}}" download="{{i.title}}">
+                                                    <div class="card bd-block pdf" datastore="{{i.pdf.url}}">
+                                                        <img class="card-img-top" src="{% static  'assets/img/pdf.png'%}" alt="pdf" height="45px" width="45px">
+                                                        <div class="card-body">
+                                                            <p class="card-title">{{i.title}}</p>
+                                                            <small>Uploaded by {{ i.user.name }}</small>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+
+                                            {% endfor %}
+
+
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--                <div class="text-center mt-5">-->
+                                <!--                    <iframe id="frame2" src="cs101Files/sample.pdf" class="container-fluid mh-fullscreen"></iframe>-->
+                                <!--                </div>-->
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -193,10 +183,10 @@
     <footer class="footer  bg-dark ">
         <div class="container">
 
-                <div class="col-12 text-center">
-                    <small>© <a href="https://www.iitg.ac.in/stud/gymkhana/technical/index.html">Barak
-                                2019</a>, All rights reserved.</small>
-                </div>
+            <div class="col-12 text-center">
+                <small>© <a href="https://www.iitg.ac.in/stud/gymkhana/technical/index.html">Barak
+                            2019</a>, All rights reserved.</small>
+            </div>
 
 
         </div>

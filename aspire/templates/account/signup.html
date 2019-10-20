@@ -4,10 +4,39 @@
 <form class="signup section-dialog mt-9 bg-light" id="signup_form" method="post" action="{% url 'account_signup' %}">
     <h1>{% trans "Sign Up" %}</h1>
 
-    <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+    <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}
+    </p>
     {% csrf_token %} {{ form|crispy }} {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" /> {% endif %}
-    <button class="btn btn-primary" type="submit">{% trans "Sign Up" %} &raquo;</button>
+    <!-- <button class="btn btn-primary" type="submit" >{% trans "Sign Up" %} &raquo;</button> -->
+    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modal-default">{% trans "Sign Up" %}
+        &raquo;</button>
 </form>
+
+<div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <p class="lead">Tell us about your interests.</p>
+                <div class="switch">
+                    <input type="checkbox" class="switch-input">
+                    <label class="switch-label">Off</label>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

@@ -30,7 +30,7 @@
     <nav class="navbar navbar-expand-lg navbar-light navbar-stick-dark" data-navbar="sticky">
         <div class="container">
             <div class="navbar-left">
-                <!-- <button class="navbar-toggler" type="button">&#9776;</button> -->
+                <button class="navbar-toggler" type="button">&#9776;</button>
                 <a class="navbar-brand" href="#">
                     <img class="logo-dark" src="{% static 'assets/img/logo-dark.png' %}" alt="logo" width="120px" height="120px">
                     <img class="logo-light" src="{% static 'assets/img/logo-light.png' %}" alt="logo" width="120px" height="120px">
@@ -39,18 +39,34 @@
             <section class="navbar-mobile">
 
 
-                <nav class="nav nav-navbar">
+                <nav class="nav nav-navbar ml-auto">
+                    <span class="navbar-divider d-mobile-none"></span>
+
+
+
+
+
+
 
                 </nav>
             </section>
-
-
+            <div class="col-4">
+                <nav class="nav nav-navbar justify-content-end">
+                    <a class="nav-link" href="#" data-toggle="offcanvas" data-target="#offcanvas-search"><i
+                                class="fa fa-search"></i></a>
+                </nav>
+            </div>
             <a class="btn btn-round btn-primary nav-link text-white ml-3    " href="{% url 'bookshare' %}">Novels</a>
             <span class="navbar-divider d-mobile-none"></span> {% if request.user.is_authenticated %}
-            <a class="btn btn-round btn-primary nav-link text-white" href="{% url 'account_logout' %}">Sign out</a> {% else %} {# URL provided by django-allauth/account/urls.py #}
+            <a class="btn btn-round btn-primary nav-link text-white" href="{% url 'account_logout' %}">Sign
+                    out</a> {% else %} {# URL provided by django-allauth/account/urls.py #}
 
-            <a class="btn btn-round btn-primary nav-link text-white " href="{% url 'account_signup' %}">Sign Up</a> {# URL provided by django-allauth/account/urls.py #}
-            <a class="btn btn-round btn-primary nav-link text-white" href="{% url 'account_login' %}">Sign In</a> {% endif %}
+            <a class="btn btn-round btn-primary nav-link text-white " href="{% url 'account_signup' %}">Sign
+                    Up</a> <span class="navbar-divider d-mobile-none"></span>{# URL provided by django-allauth/account/urls.py #}
+            <a class="btn btn-round btn-primary nav-link text-white" href="{% url 'account_login' %}">Sign
+                    In</a> {% endif %}
+
+
         </div>
     </nav>
     <!-- /.navbar -->

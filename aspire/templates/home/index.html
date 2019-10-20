@@ -23,7 +23,6 @@
 </head>
 
 <body>
-
     <!--CSS Spinner-->
 
 
@@ -182,7 +181,8 @@
 
         // Strongly recommended: Hide loader after 20 seconds, even if the page hasn't finished loading
         setTimeout(hideLoader, 20 * 1000);
-    </script>
+	</script>
+	<script>{% for i in depts %}console.log(" {{ i.name }}", "{{ i.img }} ");{% endfor %}</script>	
 </body>
 
 </html>

@@ -20,6 +20,7 @@ urlpatterns = [
     # path("home/", include("aspire.home.urls", namespace='home'))
     # Your stuff: custom urls includes go here
     url(r'^authentication/', include('authentication.urls', namespace='authentication')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

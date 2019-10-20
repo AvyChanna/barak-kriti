@@ -29,10 +29,8 @@
             <div class="navbar-left">
                 <!-- <button class="navbar-toggler" type="button">&#9776;</button> -->
                 <a class="navbar-brand" href="../dept.html">
-                    <img class="logo-dark" src="{% static 'assets/img/logo-dark.png'%}" alt="logo" width="120px"
-                        height="120px">
-                    <img class="logo-light" src="{% static 'assets/img/logo-light.png'%}" alt="logo" width="120px"
-                        height="120px">
+                    <img class="logo-dark" src="{% static 'assets/img/logo-dark.png'%}" alt="logo" width="120px" height="120px">
+                    <img class="logo-light" src="{% static 'assets/img/logo-light.png'%}" alt="logo" width="120px" height="120px">
                 </a>
             </div>
             <section class="navbar-mobile">
@@ -47,15 +45,12 @@
     </nav>
     <!-- /.navbar -->
     <!-- Header -->
-    <header class="header mb-9 mh-fullscreen" style="background-image: url({% static 'assets/img/novels.jpg'%})"
-        data-overlay="5">
+    <header class="header mb-9 mh-fullscreen" style="background-image: url('/static/assets/img/novels.jpg')" data-overlay="5">
         <div class="container text-white">
             <div class="row">
                 <div class="col-md-6 mt-5">
                     <h1 class="fw-200 mb-6">Novels</h1>
-                    <p class="lead-2">We know that curriculum is tough and you need to devote more time to it. But all
-                        work and no play makes jake a dull boy. You should take time out of your busy schedule to pursue
-                        your hobbies. Here is a space where all the people can
+                    <p class="lead-2">We know that curriculum is tough and you need to devote more time to it. But all work and no play makes jake a dull boy. You should take time out of your busy schedule to pursue your hobbies. Here is a space where all the people can
                         pursue their reading hobby by sharing the novels they own.</p>
                     <hr class="w-50px ml-0">
                     <a class="text-muted" href="#dc">Explore magical world of books.</a>
@@ -78,11 +73,9 @@
                 </header>
                 <div class="row gap-y" style="margin-top: -30px; margin-bottom: 30px">
                     {% for i in novels %}
-                    <div class="col-12 col-md-6 hover-shadow-4" data-aos="fade-up" data-aos-duration="250"
-                        data-aos-delay="00">
+                    <div class="col-12 col-md-6 hover-shadow-4" data-aos="fade-up" data-aos-duration="250" data-aos-delay="00">
 
-                        <div class="col-12 team-3 bg-img"
-                            style="background-image:url('{% static 'assets/img/bg.jpg'%}');">
+                        <div class="col-12 team-3 bg-img" style="background-image:url('{% static 'assets/img/bg.jpg'%}');">
                             <a class="team-img py-3" href="#">
                                 <img src="{{i.img.url}}" alt="...">
                             </a>
@@ -91,13 +84,14 @@
                                 <h3>{{i.title}}</h3>
                                 <p style="font-family:'Lucida Console', monospace">by {{i.author}}</p>
                                 <h5>Owned by {{i.owner}}</h5>
-                                <span class="badge badge-info">{%if i.isborrowed%}Not {%else%}Borrowed{%endif%}</span>
+                                <span class="badge badge-info">{%if i.isborrowed%}Not
+                                        {%else%}Borrowed{%endif%}</span>
                             </div>
                         </div>
                     </div>
                     {%endfor%}
-                    
-                   
+
+
                 </div>
             </div>
         </section>
@@ -108,7 +102,7 @@
 
             <div class="col-12 text-center">
                 <small>© <a href="https://intranet.iitg.ac.in/hostels/barak/index.html">Barak
-                        2019</a>, All rights reserved.</small>
+                            2019</a>, All rights reserved.</small>
             </div>
 
 

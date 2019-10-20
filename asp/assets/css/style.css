@@ -22,6 +22,28 @@ h1,
 h2 {
     font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
 }
-.nav-link:hover{
-    color:#50a1fd;
- }
+
+.nav-link:hover {
+    color: #50a1fd;
+}
+
+@media(max-width: 586px) and (min-width:400px) {
+    .ytv {
+        width: 380px;
+        height: 285px;
+    }
+}
+
+@media(max-width: 400px) and (min-width:250px) {
+    .ytv {
+        width: 250px;
+        height: 186px;
+    }
+}
+
+@media(min-width:720px) {
+    .ytv {
+        min-width: 586px;
+        height: 100%;
+    }
+}

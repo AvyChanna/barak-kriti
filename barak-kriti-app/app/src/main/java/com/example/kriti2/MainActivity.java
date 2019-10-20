@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         myWebView = findViewById(R.id.webview);
-        myWebView.loadUrl("http://10.150.38.247:8001");
+        myWebView.loadUrl(getString(R.string.ip));
         myWebView.setWebViewClient(new CustomWebViewClient());
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);

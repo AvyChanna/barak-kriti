@@ -1,17 +1,20 @@
 from django.shortcuts import render, get_object_or_404, Http404
 from aspire.home.models import Department, Course, Video, Book, Novel, Note
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, get_object_or_404 , Http404
+from django.shortcuts import render, get_object_or_404, Http404
 from django.http import HttpResponseRedirect, HttpResponse
-from .forms import NameForm
+# from .forms import NameForm
+
 
 def index(request):
     return HttpResponseRedirect("accounts/login")
 
+
 @login_required
 def home(request):
     d = Department.objects.all()
-    return render(request, "home/index.html", {'depts':d})
+    return render(request, "home/index.html", {'depts': d})
+
 
 @login_required
 def courses(request, dept, sub):
@@ -23,19 +26,21 @@ def courses(request, dept, sub):
     v = Video.objects.filter(course=c)
     b = Book.objects.filter(course=c)
     return render(request, "course/index.html",
-                  {'dept':d, 'course':c, 'videos':v, 'books':b, "tags": t})
+                  {'dept': d, 'course': c, 'videos': v, 'books': b, "tags": t})
+
 
 @login_required
 def departments(request, slug):
     d = get_object_or_404(Department, slug=slug)
     c = Course.objects.filter(department=d)
     t = c.tag_set.all()
-    return render(request, 'department/index.html', {'dept':d, "courses":c, "tags":t})
+    return render(request, 'department/index.html', {'dept': d, "courses": c, "tags": t})
+
 
 @login_required
 def bookshare(request):
     n = Novel.objects.all()
-    return render(request, "bookshare/index.html", {'novels':n})
+    return render(request, "bookshare/index.html", {'novels': n})
 
 
 @login_required
@@ -49,7 +54,8 @@ def share(request):
     # if a GET (or any other method) we'll create a blank form
     else:
         form = NameForm()
-    return render(request, 'course/share.html', {'form': form} )
+    return render(request, 'course/share.html', {'form': form})
+
 
 @login_required
 def search(request):
@@ -60,4 +66,4 @@ def search(request):
     q = request.GET.get('q', '')
     v = Video.objects.filter(title=q)
     b = Book.objects.filter(title=q)
-    return render(request, 'search/index.html', {"videos":v, "books":b} )
+    return render(request, 'search/index.html', {"videos": v, "books": b})
